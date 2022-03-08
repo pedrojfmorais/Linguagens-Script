@@ -1,4 +1,4 @@
- 'use strict';  
+'use strict';  
 
 function imprimeArray(array){
     for (const iterator of array) {
@@ -8,14 +8,12 @@ function imprimeArray(array){
 
 let original=['angular','bootstrap','javascript','vue','svelte','react'];
 
+let arr_final = original.filter(function(val){
+    return val.length < 7;
+});
 
-
-let arr_final = original.reduce(function(total, currentValue){
-    if(currentValue.length < 7){
-        total.push("[" + currentValue + "]");
-    }
-    return total;
-}, []);
-
+arr_final = arr_final.map(function(val){
+    return "[" + val + "]";
+});
 
 imprimeArray(arr_final);
