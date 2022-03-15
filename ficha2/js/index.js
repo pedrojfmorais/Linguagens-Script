@@ -6,8 +6,6 @@ const panel_game = document.getElementById('panel-game');
 const btLevel = document.getElementById('btLevel');
 const btPlay = document.getElementById('btPlay');
 
-btLevel.addEventListener('change', reset);
-
 function reset() {
     message.textContent = "";
     message.classList.remove('hide');
@@ -26,6 +24,8 @@ function reset() {
         panel_game.style.display = 'grid';
     }
 }
+
+btLevel.addEventListener('change', reset);
 
 btPlay.addEventListener('click', function(){
     if(btPlay.textContent == "Terminar Jogo")
