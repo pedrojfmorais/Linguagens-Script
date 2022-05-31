@@ -29,11 +29,8 @@ function App() {
   useEffect(() => { 
     if (gameStarted) { 
       timerId = setInterval(() => { 
-        let nextTimer; 
-        setTimer((previousState) => { 
-          nextTimer = previousState - 1; 
-          return nextTimer; 
-        }); 
+        setTimer(timer-1); 
+        let nextTimer = timer - 1; 
         if (nextTimer === 0) { 
           setGameStarted(false); 
         } 
@@ -46,7 +43,7 @@ function App() {
         clearInterval(timerId); 
       } 
     }; 
-  }, [gameStarted]);
+  }, [gameStarted, timer]);
 
   /**
   * When the game starts
