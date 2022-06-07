@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./assets/styles/App.css";
 
 import {
@@ -40,6 +40,7 @@ function App() {
     } else {
       console.log("Inicia Jogo");
       setGameStarted(true);
+      setTotalPoints(0);
     }
   };
 
@@ -106,8 +107,9 @@ function App() {
           selectedLevel={selectedLevel}
           onLevelChange={handleLevelChange}
           setGameStarted={setGameStarted}
-          cards={cards}
           setTimer={setTimer}
+          totalPoints={totalPoints}
+          timer={timer}
         />
          <GamePanel 
           cards={cards} 

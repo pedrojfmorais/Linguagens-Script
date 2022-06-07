@@ -5,12 +5,13 @@ import { TIMEOUTGAME } from "../../constants";
 let timerId = undefined;
 
 function ControlPanel(props) {
-  const { gameStarted, selectedLevel, onGameStart, onLevelChange, setGameStarted, timer, setTimer, totalPoints } =
+  const { gameStarted, selectedLevel, onGameStart, onLevelChange, timer, totalPoints, setTimer, setGameStarted } =
     props;
 
   const gameStartedClass = gameStarted ? " gameStarted" : "";
 
   useEffect(() => {
+    console.log(timer);
     if (gameStarted) {
       timerId = setInterval(() => {
         let nextTimer;
@@ -33,7 +34,7 @@ function ControlPanel(props) {
         clearInterval(timerId);
       }
     };
-  }, [gameStarted]);
+  }, [gameStarted, timer]);
 
   return (
     <section id="panel-control">
@@ -72,11 +73,11 @@ function ControlPanel(props) {
         </dl>
         <dl className={`list-item right${gameStartedClass}`}>
           <dt>Pontuação TOP:</dt>
-          <dd id="pointsTop">{totalPoints}</dd>
+          <dd id="pointsTop">0</dd>
         </dl>
         <dl className={`list-item left${gameStartedClass}`}>
           <dt>Pontuação:</dt>
-          <dd id="points">0</dd>
+          <dd id="points">{totalPoints}</dd>
         </dl>
         <div id="top10" className={`right`}>
           <button id="btTop">Ver TOP 10</button>
